@@ -99,21 +99,21 @@ export default function App() {
       org: "Università Politecnica delle Marche, Italy",
       email: "mariachiara.fiorentino@unich.it",
       bio: "Maria Chiara Fiorentino received her M.Sc. degree cum laude in Biomedical Engineering in 2018 and her Ph.D. degree cum laude in Information Engineering in 2023, both from Università Politecnica delle Marche (UNIVPM), Ancona, Italy. Her doctoral research focused on deep learning for ultrasound image analysis in gynecology and rheumatology, and her thesis, “DL4US: Unlocking the potential of deep learning for ultrasound image analysis in gynecology and rheumatology,” was awarded among the best Italian Ph.D. theses by the Gruppo Nazionale di Bioingegneria. She is currently a Postdoctoral Researcher at the Department of Information Engineering, Università Politecnica delle Marche, where she works on AI-based methods for medical data analysis in diagnosis and therapy. Throughout her research activity, she has collaborated with several industrial and research institutions, including Esaote S.p.A. — a leading company in ultrasound imaging systems — SoundsafeCare, specialized in robotic ultrasound systems for focused ultrasound applications, Vicomtech, the Basque research center specializing in applied artificial intelligence and computer vision for healthcare, and Universitat Pompeu Fabra (UPF), Barcelona, Spain. She has authored several papers in international peer-reviewed journals and conferences and serves as a reviewer for leading venues in medical image analysis and artificial intelligence.",
-      img: "/team/maria-chiara-fiorentino.jpg"
+      img: "team/maria-chiara-fiorentino.jpg"
     },
     { 
       name: "Riccardo Rosati", 
       org: "University of Macerata, Italy",
       email: "riccardo.rosati@unimc.it",
       bio: "Riccardo Rosati obtained his Ph.D. in Information Engineering from the Università Politecnica delle Marche. He is currently an Assistant Professor at the University of Macerata. His research interests primarily focus on Machine Learning and Deep Learning, specifically in multitask, ordinal and hierarchical learning, and their applications in Industry 4.0/5.0 and biomedical domains. He is the author of 30+ international scientific publications and serves as an Associate Editor for The Visual Computer (Springer Nature). He was a PC member for several international top ranking conferences (ECML-PKDD, IJCAI, ECAI - recognized as an Outstanding PC Member for ECAI 2025). He co-organized workshops at prestigious venues such as the IEEE International Conference on Biomedical and Health Informatics (BHI 2024) and the International Conference on Industry 4.0 and Smart Manufacturing (ISM 2023). He has extensive experience in technological transfer projects, collaborating with numerous international companies. In 2023, he was a Visiting Researcher at the University of Córdoba (Spain) to advance his work on ordinal regression methodologies.",
-      img: "/team/riccardo-rosati.jpg"
+      img: "team/riccardo-rosati.jpg"
     },
     { 
       name: "Luca Romeo", 
       org: "University of Macerata, Italy",
       email: "luca.romeo@unimc.it",
       bio: "Luca Romeo is Associate Professor of Computer Science at the University of Macerata (UniMC), Department of Economics and Law. Additionally, he is affiliated with the Unit of Computational Statistics and Machine Learning at Fondazione Istituto Italiano di Tecnologia (IIT) in Genova, Italy. Dr. Romeo’s research centers on designing novel machine learning algorithms to address complex challenges in real-world domains. He has authored over 50 publications in leading conferences and journals. He serves as an Associate Editor for the Neurocomputing (Elsevier) journal and Medical & Biological Engineering & Computing (MBEC). Dr. Romeo is actively involved in the global AI research community, serving as a Senior Program Committee (SPC) member for the International Joint Conference on Artificial Intelligence and as a member of the Ellis Society, a pan-European network of AI excellence.",
-      img: "/team/luca-romeo.jpg",
+      img: "team/luca-romeo.jpg",
       imgPos: "top"
     },
     { 
@@ -121,7 +121,7 @@ export default function App() {
       org: "Polytechnic University of Marche, Italy",
       email: "e.filippucci@univpm.it",
       bio: "Professor Filippucci is an Associate Professor of Rheumatology at the Polytechnic University of Marche (Ancona, Italy) and Head of the Rheumatology Department at the \"Carlo Urbani\" Hospital (Jesi, Italy). He has authored over 300 peer-reviewed publications, with an h-index of 63. He is a faculty member and active contributor to educational initiatives of the European Alliance of Associations for Rheumatology (EULAR), especially in ultrasound training courses, and many ultrasound-focused special interest groups within the Outcome Measures in Rheumatology (OMERACT). His research focuses on the application of ultrasound in rheumatic and musculoskeletal diseases, including rheumatoid arthritis and spondyloarthritis, contributing to standardised imaging definitions and scoring systems used worldwide. Beyond his publication record, Professor Filippucci is widely recognised and regularly invited to national and international congresses and training programs, where he contributes to the dissemination and standardisation of musculoskeletal ultrasound in rheumatology.",
-      img: "/team/emilio-filippucci.jpg",
+      img: "team/emilio-filippucci.jpg",
       imgPos: "top"
     },
     { 
@@ -129,14 +129,14 @@ export default function App() {
       org: "Marche University Hospitals, Italy & University of Nottingham, UK",
       email: "edoardo.cipolletta@nottingham.ac.uk",
       bio: "Dr Cipolletta is a Consultant Rheumatologist in the Department of Internal Medicine at the Marche University Hospitals (Ancona, Italy) and an associate research fellow in the Academic Rheumatology at the University of Nottingham (Nottingham, UK). He received his medical training at the Polytechnic University of Marche (2010-2016) and his residency training at \"Carlo Urbani\" Hospital, both in Italy (2017-2022). He completed an international PhD on the diagnosis and prognosis of flares in crystal arthritis in 2025. Apart from crystal arthritis, his other research interests include the epidemiology of rheumatic diseases, ultrasonography in musculoskeletal diseases, and the development of clinical prognostic models. He has published over 100 peer-reviewed articles (H-index 23).",
-      img: "/team/edoardo-cipolletta.jpg"
+      img: "team/edoardo-cipolletta.jpg"
     },
     { 
       name: "Pedro Antonio Gutiérrez", 
       org: "University of Córdoba, Spain",
       email: "pagutierrez@uco.es",
       bio: "Pedro Antonio Gutiérrez received the B.S. degree in Computer Science from the University of Sevilla (Spain) in 2006, and the Ph.D. degree in Computer Science and Artificial Intelligence from the University of Granada (Spain) in 2009. He is currently a Professor with the Department of Computer Science and Numerical Analysis, University of Córdoba (Spain). His research interests are in the areas of supervised learning, evolutionary artificial neural networks and ordinal classification for both shallow and deep learning models. He serves on the Editorial board for the journal IEEE Transaction on Neural Networks and Learning Systems and on the organisation/program committees of several computational intelligence conferences.",
-      img: "/team/pedro-antonio-gutierrez.jpg",
+      img: "team/pedro-antonio-gutierrez.jpg",
       imgPos: "top"
     },
     { 
@@ -144,7 +144,7 @@ export default function App() {
       org: "University of Córdoba, Spain",
       email: "chervas@uco.es",
       bio: "César Hervás-Martínez was born in Cuenca, Spain. He received a B.S. degree in statistics and operations research from the Universidad Complutense de Madrid, Madrid, Spain, in 1978 and a Ph.D. in mathematics from the University of Seville, Seville, Spain, in 1986. He is a Computer Science and Artificial Intelligence Professor at the Department of Computer Science and Numerical Analysis, University of Córdoba, Córdoba, Spain. His current research interests include neural networks, evolutionary computation, and natural systems modeling.",
-      img: "/team/cesar-hervas-martinez.jpg",
+      img: "team/cesar-hervas-martinez.jpg",
       imgPos: "top"
     }
   ];
@@ -182,7 +182,7 @@ export default function App() {
       <header className="relative overflow-hidden py-24 sm:py-40">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/hero-bg.jpg" 
+            src="hero-bg.jpg" 
             alt="RHEUM-AI Background" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
