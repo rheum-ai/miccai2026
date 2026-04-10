@@ -20,7 +20,10 @@ import {
   Clock,
   X,
   Bone,
-  Sparkles
+  Sparkles,
+  ShieldCheck,
+  BookOpen,
+  Trophy
 } from 'lucide-react';
 
 const RHEUM_AI_BLUE = "#0056b3";
@@ -231,7 +234,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-32">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-20">
         
         {/* Workshop Description */}
         <section id="about">
@@ -243,14 +246,13 @@ export default function App() {
             <SectionTitle icon={Microscope}>Workshop Scope</SectionTitle>
             <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
               <p>
-                Rheumatic and musculoskeletal diseases (RMDs) represent a major global health burden. 
-                While AI-driven medical image analysis has achieved success in oncology and cardiology, 
-                rheumatologic imaging remains a key frontier for AI research.
+                Rheumatic and musculoskeletal diseases (RMDs) comprise a wide spectrum of chronic inflammatory and degenerative conditions affecting joints, connective tissues, and internal organs, representing a major global health burden.
               </p>
               <p>
-                <strong>RHEUM-AI</strong> aims to bridge the gap between algorithmic development and real-world clinical needs. 
-                We bring together experts in computer vision, machine learning, and rheumatology to foster interdisciplinary 
-                collaboration and accelerate methodological innovation.
+                Medical imaging modalities such as ultrasound (US), magnetic resonance imaging (MRI), conventional radiography (X-ray), computed tomography (CT), and emerging techniques including photoacoustic imaging are fundamental for diagnosis, disease monitoring, and treatment assessment. However, image interpretation remains challenging due to subtle early pathological changes, heterogeneous disease manifestations, and the reliance on standardized but time-consuming scoring systems that require substantial clinical expertise.
+              </p>
+              <p>
+                While AI-driven medical image analysis has achieved remarkable success in domains such as oncology and cardiology, rheumatologic imaging has received comparatively limited attention. <strong>RHEUM-AI</strong> aims to establish rheumatology as a key frontier for AI-driven research, bridging the gap between algorithmic development and real-world clinical needs.
               </p>
               <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
@@ -259,7 +261,7 @@ export default function App() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">Clinical Impact</h4>
-                    <p className="text-sm">Improved diagnosis and monitoring</p>
+                    <p className="text-sm">Addressing robustness, interpretability, and workflow integration</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
@@ -268,7 +270,7 @@ export default function App() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">AI Innovation</h4>
-                    <p className="text-sm">Multimodal & temporal modeling</p>
+                    <p className="text-sm">Multimodal data, temporal dynamics, and patient-specific variability</p>
                   </div>
                 </div>
               </div>
@@ -281,44 +283,129 @@ export default function App() {
           <div className="max-w-3xl">
             <h2 className="text-4xl font-bold mb-8">Call for Papers</h2>
             <p className="text-slate-400 mb-12 text-lg">
-              We welcome original contributions on advanced computational methods for rheumatologic imaging.
+              The RHEUM-AI workshop welcomes original contributions on topics including, but not limited to:
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             {[
-              "Computer-aided diagnosis & classification",
-              "Quantitative assessment & clinical scoring",
-              "Joint & soft tissue segmentation",
-              "Multimodal & multi-source learning",
-              "Temporal & longitudinal modeling",
-              "Foundation models in rheumatology",
-              "Generative & data-centric AI",
-              "Explainable & trustworthy AI",
-              "Federated & privacy-preserving learning",
-              "Clinical translation & workflow",
-              "Datasets & community challenges"
+              {
+                title: "Computer-aided diagnosis and classification",
+                desc: "Early disease detection and subtype classification"
+              },
+              {
+                title: "Quantitative assessment and clinical scoring",
+                desc: "Automated computation of established scoring systems (e.g., RAMRIS, OMERACT, Sharp); Objective disease severity assessment"
+              },
+              {
+                title: "Segmentation and quantitative analysis",
+                desc: "Segmentation of joints, bones, cartilage, and soft tissues; Detection and quantification of synovitis, erosions, bone marrow edema, and cartilage damage"
+              },
+              {
+                title: "Multimodal and multi-source learning",
+                desc: "Integration of imaging with clinical, laboratory, genetic, and patient-reported data; Cross-modality learning and fusion"
+              },
+              {
+                title: "Temporal and longitudinal modeling",
+                desc: "Disease progression analysis; Treatment response prediction"
+              },
+              {
+                title: "Foundation models and representation learning",
+                desc: "Transfer learning, self-supervised and weakly supervised learning for rheumatologic imaging"
+              },
+              {
+                title: "Generative and data-centric AI",
+                desc: "Data augmentation, synthetic data generation, and cross-modality synthesis"
+              },
+              {
+                title: "Explainable, trustworthy, and robust AI",
+                desc: "Interpretability, uncertainty estimation, bias analysis, and robustness"
+              },
+              {
+                title: "Federated and privacy-preserving learning",
+                desc: "Multi-center collaboration under data-sharing constraints"
+              },
+              {
+                title: "Clinical translation",
+                desc: "Workflow integration, prospective validation, and regulatory considerations"
+              },
+              {
+                title: "Datasets, benchmarks, and challenges",
+                desc: "Public datasets, evaluation protocols, and community challenges"
+              }
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3 group cursor-default">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform" />
-                <span className="text-slate-300 group-hover:text-white transition-colors">{item}</span>
+              <div key={i} className="space-y-2 group cursor-default">
+                <div className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform" />
+                  <h4 className="text-lg font-bold text-white transition-colors">{item.title}</h4>
+                </div>
+                <p className="text-slate-400 text-sm pl-4.5 leading-relaxed group-hover:text-slate-300 transition-colors">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
-          <div className="mt-16 flex flex-wrap gap-6">
-            <Card className="bg-white/5 border-white/10 p-4 flex items-center gap-4">
-              <FileText className="text-blue-400" />
-              <div>
-                <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Proceedings</p>
-                <p className="text-sm font-medium">Springer Nature LNCS</p>
+        </section>
+
+        {/* Additional Info Sections */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 pt-16 border-t border-slate-100">
+          {/* Review Process */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+              <div className="p-2 bg-blue-50 rounded-lg">
+                <ShieldCheck className="w-6 h-6 text-blue-600" />
               </div>
-            </Card>
-            <Card className="bg-white/5 border-white/10 p-4 flex items-center gap-4">
-              <Award className="text-emerald-400" />
-              <div>
-                <p className="text-xs text-slate-500 uppercase font-bold tracking-widest">Recognition</p>
-                <p className="text-sm font-medium">Best Paper Award</p>
+              Review Process
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              To ensure high academic standards, the workshop adopts a <strong>double-blind peer-review process</strong>. 
+              Each submission will be evaluated by at least three independent reviewers from our Program Committee. 
+              Submissions are managed through the <strong>OpenReview</strong> platform to ensure transparency and traceability.
+            </p>
+          </div>
+
+          {/* Diversity & Inclusion */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+              <div className="p-2 bg-emerald-50 rounded-lg">
+                <Users className="w-6 h-6 text-emerald-600" />
               </div>
-            </Card>
+              Diversity & Inclusion
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              We are committed to achieving <strong>gender balance</strong> and <strong>geographic diversity</strong>. 
+              The call for papers encourages submissions addressing challenges specific to low-resource settings, 
+              aligning with MICCAI's mission to foster global inclusion without compromising scientific excellence.
+            </p>
+          </div>
+
+          {/* Proceedings */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+              <div className="p-2 bg-purple-50 rounded-lg">
+                <BookOpen className="w-6 h-6 text-purple-600" />
+              </div>
+              Proceedings
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              Accepted papers will be included in the <strong>MICCAI Satellite Events LNCS proceedings</strong>, 
+              published by <strong>Springer Nature</strong>. This ensures archival publication standards and 
+              broad visibility within the scientific community.
+            </p>
+          </div>
+
+          {/* Best Paper Award */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+              <div className="p-2 bg-amber-50 rounded-lg">
+                <Trophy className="w-6 h-6 text-amber-600" />
+              </div>
+              Best Paper Award
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              To recognize exceptional contributions to the field of rheumatologic imaging, 
+              a <strong>Best Paper Award</strong> will be presented during the workshop. 
+              The award aims to stimulate high-quality research and innovative methodological approaches.
+            </p>
           </div>
         </section>
 
@@ -337,9 +424,9 @@ export default function App() {
               <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-blue-100" />
               
               {[
-                { label: "Workshop paper submission deadline", date: "To be announced" },
-                { label: "Notification of acceptance", date: "To be announced" },
-                { label: "Camera-ready submission", date: "To be announced" },
+                { label: "Workshop paper submission deadline", date: "July 1, 2026" },
+                { label: "Notification of acceptance", date: "July 31, 2026" },
+                { label: "Camera-ready submission", date: "September 3, 2026" },
                 { label: "Workshop day", date: "To be announced" },
               ].map((item, i) => (
                 <motion.div 
@@ -364,33 +451,11 @@ export default function App() {
             </div>
           </div>
         </section>
-
-        {/* DEI & Review */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-16 border-t border-slate-100">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <Award className="w-6 h-6 text-blue-600" /> Review Process
-            </h3>
-            <p className="text-slate-600 leading-relaxed">
-              Double-blind peer-review process engaging an experienced program committee of researchers and clinicians. 
-              Each submission evaluated by at least three independent reviewers. Submissions will be managed through the Openreview platform.
-            </p>
-          </div>
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <Users className="w-6 h-6 text-emerald-600" /> Diversity & Inclusion
-            </h3>
-            <p className="text-slate-600 leading-relaxed">
-              Committed to gender balance and geographic diversity. Submissions addressing challenges in low-resource settings 
-              are highly encouraged.
-            </p>
-          </div>
-        </section>
       </main>
 
       {/* Event & Organization Section */}
-      <div className="bg-slate-50/80 border-t border-slate-200 mt-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 space-y-32">
+      <div className="bg-slate-50/80 border-t border-slate-200 mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-20">
           {/* Keynote Speakers */}
         <section id="speakers">
           <SectionTitle icon={Users}>Invited Keynote Speakers</SectionTitle>
@@ -566,7 +631,7 @@ export default function App() {
               <h4 className="text-white font-bold uppercase tracking-widest text-xs">Contact</h4>
               <div className="flex items-center gap-2 text-sm">
                 <Mail className="w-4 h-4" />
-                <span>rosati1392@gmail.com</span>
+                <span>rheumai.ws@gmail.com</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <MapPin className="w-4 h-4" />
