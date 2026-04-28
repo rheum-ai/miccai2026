@@ -209,14 +209,14 @@ export default function App() {
               RHEUM-AI
             </h1>
             <p className="text-xl sm:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
-              Advanced Computational Methods for Rheumatologic Imaging
+              First Workshop on Advanced Computational Methods <br className="hidden sm:block" /> for Rheumatologic Imaging
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-slate-400 text-sm mb-10">
               <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
                 <Calendar className="w-4 h-4" /> MICCAI 2026 Satellite Event
               </div>
               <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-                <MapPin className="w-4 h-4" /> Abu Dhabi, UAE
+                <MapPin className="w-4 h-4" /> Strasbourg, France
               </div>
             </div>
             <div className="flex justify-center">
@@ -359,7 +359,7 @@ export default function App() {
             <p className="text-slate-600 leading-relaxed">
               To ensure high academic standards, the workshop adopts a <strong>double-blind peer-review process</strong>. 
               Each submission will be evaluated by at least three independent reviewers from our Program Committee. 
-              Submissions are managed through the <strong>OpenReview</strong> platform to ensure transparency and traceability.
+              Submissions are managed through the <a href="https://openreview.net/group?id=MICCAI.org/2026/Workshop/RHEUM-AI" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-semibold">OpenReview</a> platform to ensure transparency and traceability.
             </p>
           </div>
 
@@ -537,6 +537,31 @@ export default function App() {
             ))}
           </div>
         </section>
+
+        {/* Program Committee */}
+        <section id="program-committee">
+          <SectionTitle icon={Users}>Program Committee</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: "Rocco Pietrini", org: "Mercatorum University, IT" },
+              { name: "Paolo Sernani", org: "University of Macerata, IT" },
+              { name: "Marina Paolanti", org: "University of Macerata, IT" },
+              { name: "Emanuele Balloni", org: "Polytechnic University of Marche, IT" },
+              { name: "Lorenzo Federici", org: "Polytechnic University of Marche, IT" },
+              { name: "Alessandro Di Matteo", org: "University G. d'Annunzio Chieti-Pescara, IT" },
+              { name: "Sara Moccia", org: "University G. d'Annunzio Chieti-Pescara, IT" },
+              { name: "Angelo Lasala", org: "School of Advanced Studies Sant'Anna, IT" },
+              { name: "Francisco Bérchez-Moreno", org: "University of Córdoba, ES" },
+              { name: "Víctor M. Vargas", org: "University of Córdoba, ES" },
+              { name: "Antonio Manuel Gómez-Orellana", org: "University of Córdoba, ES" }
+            ].map((member, i) => (
+              <div key={i} className="flex flex-col bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-slate-900 text-lg">{member.name}</h4>
+                <p className="text-blue-600 text-sm mt-1">{member.org}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
 
@@ -635,7 +660,7 @@ export default function App() {
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <MapPin className="w-4 h-4" />
-                <span>Abu Dhabi, UAE</span>
+                <span>Strasbourg, France</span>
               </div>
             </div>
           </div>
