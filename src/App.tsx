@@ -190,7 +190,7 @@ export default function App() {
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900/95" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
@@ -202,7 +202,13 @@ export default function App() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
               <Award className="w-4 h-4" /> Accepted at MICCAI 2026
             </div>
-            <div className="flex justify-center mb-10">
+            <div className="flex flex-col items-center gap-8 mb-10">
+              <img 
+                src="/miccai2026-logo-france.png" 
+                alt="MICCAI 2026 Strasbourg Logo" 
+                className="h-24 sm:h-32 object-contain drop-shadow-xl"
+                referrerPolicy="no-referrer"
+              />
               <RheumAiLogo size="lg" />
             </div>
             <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6">
@@ -548,6 +554,7 @@ export default function App() {
               { name: "Marina Paolanti", org: "University of Macerata, IT" },
               { name: "Emanuele Balloni", org: "Polytechnic University of Marche, IT" },
               { name: "Lorenzo Federici", org: "Polytechnic University of Marche, IT" },
+              { name: "Selene Tomassini", org: "University of Trento, IT" },
               { name: "Alessandro Di Matteo", org: "University G. d'Annunzio Chieti-Pescara, IT" },
               { name: "Sara Moccia", org: "University G. d'Annunzio Chieti-Pescara, IT" },
               { name: "Angelo Lasala", org: "School of Advanced Studies Sant'Anna, IT" },
@@ -631,7 +638,7 @@ export default function App() {
     {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <RheumAiLogo size="sm" />
@@ -640,6 +647,18 @@ export default function App() {
               <p className="text-sm leading-relaxed">
                 Advancing the intersection of rheumatology and artificial intelligence for better patient outcomes.
               </p>
+            </div>
+            <div className="space-y-4">
+              <h4 className="text-white font-bold uppercase tracking-widest text-xs">Affiliation</h4>
+              <div className="flex flex-col gap-4">
+                <img 
+                  src="/miccai2026-logo-france.png" 
+                  alt="MICCAI 2026 Logo" 
+                  className="h-12 object-contain w-fit opacity-90 hover:opacity-100 transition-opacity"
+                  referrerPolicy="no-referrer"
+                />
+                <p className="text-xs">MICCAI 2026 Official Workshop</p>
+              </div>
             </div>
             <div className="space-y-4">
               <h4 className="text-white font-bold uppercase tracking-widest text-xs">Quick Links</h4>
