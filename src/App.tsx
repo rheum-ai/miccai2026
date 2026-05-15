@@ -204,7 +204,7 @@ export default function App() {
             </div>
             <div className="flex flex-col items-center gap-8 mb-10">
               <img 
-                src="/miccai2026-logo-france.png" 
+                src="miccai2026-logo-france.png" 
                 alt="MICCAI 2026 Strasbourg Logo" 
                 className="h-24 sm:h-32 object-contain drop-shadow-xl"
                 referrerPolicy="no-referrer"
@@ -652,7 +652,7 @@ export default function App() {
               <h4 className="text-white font-bold uppercase tracking-widest text-xs">Affiliation</h4>
               <div className="flex flex-col gap-4">
                 <img 
-                  src="/miccai2026-logo-france.png" 
+                  src="miccai2026-logo-france.png" 
                   alt="MICCAI 2026 Logo" 
                   className="h-12 object-contain w-fit opacity-90 hover:opacity-100 transition-opacity"
                   referrerPolicy="no-referrer"
