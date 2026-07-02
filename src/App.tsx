@@ -23,7 +23,8 @@ import {
   Sparkles,
   ShieldCheck,
   BookOpen,
-  Trophy
+  Trophy,
+  ArrowRight
 } from 'lucide-react';
 
 const RHEUM_AI_BLUE = "#0056b3";
@@ -99,7 +100,7 @@ export default function App() {
   const teamMembers = [
     { 
       name: "Maria Chiara Fiorentino", 
-      org: "Università Politecnica delle Marche, Italy",
+      org: "University G. d'Annunzio Chieti-Pescara, IT",
       email: "mariachiara.fiorentino@unich.it",
       bio: "Maria Chiara Fiorentino received her M.Sc. degree cum laude in Biomedical Engineering in 2018 and her Ph.D. degree cum laude in Information Engineering in 2023, both from Università Politecnica delle Marche (UNIVPM), Ancona, Italy. Her doctoral research focused on deep learning for ultrasound image analysis in gynecology and rheumatology, and her thesis, “DL4US: Unlocking the potential of deep learning for ultrasound image analysis in gynecology and rheumatology,” was awarded among the best Italian Ph.D. theses by the Gruppo Nazionale di Bioingegneria. She is currently a Postdoctoral Researcher at the Department of Information Engineering, Università Politecnica delle Marche, where she works on AI-based methods for medical data analysis in diagnosis and therapy. Throughout her research activity, she has collaborated with several industrial and research institutions, including Esaote S.p.A. — a leading company in ultrasound imaging systems — SoundsafeCare, specialized in robotic ultrasound systems for focused ultrasound applications, Vicomtech, the Basque research center specializing in applied artificial intelligence and computer vision for healthcare, and Universitat Pompeu Fabra (UPF), Barcelona, Spain. She has authored several papers in international peer-reviewed journals and conferences and serves as a reviewer for leading venues in medical image analysis and artificial intelligence.",
       img: "team/maria-chiara-fiorentino.jpg"
@@ -149,6 +150,33 @@ export default function App() {
       bio: "César Hervás-Martínez was born in Cuenca, Spain. He received a B.S. degree in statistics and operations research from the Universidad Complutense de Madrid, Madrid, Spain, in 1978 and a Ph.D. in mathematics from the University of Seville, Seville, Spain, in 1986. He is a Computer Science and Artificial Intelligence Professor at the Department of Computer Science and Numerical Analysis, University of Córdoba, Córdoba, Spain. His current research interests include neural networks, evolutionary computation, and natural systems modeling.",
       img: "team/cesar-hervas-martinez.jpg",
       imgPos: "top"
+    }
+  ];
+
+  const keynoteSpeakers = [
+    {
+      name: "Prof. Jaime S. Cardoso",
+      org: "FEUP / INESC TEC, Portugal",
+      bio: "Prof. Cardoso is a Full Professor at FEUP (University of Porto) and senior researcher at INESC TEC, where he co-leads the Visual Computing and Machine Intelligence group. His research spans computer vision, medical decision support, and machine learning interpretability — making him an ideal voice for the intersection of AI and clinical application that RHEUM-AI aims to advance. Recognized among the World's Top 2% Scientists, Prof. Cardoso brings both scientific depth and translational vision to our workshop.",
+      img: "team/jaime-cardoso.jpg",
+      imgPos: "top",
+      type: "Keynote Speaker"
+    },
+    {
+      name: "Prof. Costantino Grana",
+      org: "University of Modena and Reggio Emilia, Italy",
+      bio: "Prof. Grana is a Full Professor at the Department of Engineering \"Enzo Ferrari\", University of Modena and Reggio Emilia, where he teaches Multimedia Data Processing. His research sits at the intersection of Medical Imaging, Image Processing, and Computer Vision — with contributions spanning nephrology, dermoscopy, and digital humanities. He has been involved in several national and European research projects, including the Horizon 2020 initiatives DeepHealth and ELISE, and is currently participating in the project FIT4MEDROB on medical robotics and digital health. With over 200 publications, Prof. Grana brings broad medical imaging expertise to our workshop.",
+      img: "team/costantino-grana.jpg",
+      imgPos: "top",
+      type: "Keynote Speaker"
+    },
+    {
+      name: "Prof. Emilio Filippucci",
+      org: "Polytechnic University of Marche, Italy",
+      bio: "Professor Filippucci is an Associate Professor of Rheumatology at the Polytechnic University of Marche (Ancona, Italy) and Head of the Rheumatology Department at the \"Carlo Urbani\" Hospital (Jesi, Italy). He has authored over 300 peer-reviewed publications, with an h-index of 63. He is a faculty member and active contributor to educational initiatives of the European Alliance of Associations for Rheumatology (EULAR), especially in ultrasound training courses, and many ultrasound-focused special interest groups within the Outcome Measures in Rheumatology (OMERACT). His research focuses on the application of ultrasound in rheumatic and musculoskeletal diseases, including rheumatoid arthritis and spondyloarthritis, contributing to standardised imaging definitions and scoring systems used worldwide. Beyond his publication record, Professor Filippucci is widely recognised and regularly invited to national and international congresses and training programs, where he contributes to the dissemination and standardisation of musculoskeletal ultrasound in rheumatology.",
+      img: "team/emilio-filippucci.jpg",
+      imgPos: "top",
+      type: "Keynote Speaker"
     }
   ];
 
@@ -433,7 +461,7 @@ export default function App() {
                 { label: "Workshop paper submission deadline", date: "July 1, 2026" },
                 { label: "Notification of acceptance", date: "July 31, 2026" },
                 { label: "Camera-ready submission", date: "September 3, 2026" },
-                { label: "Workshop day", date: "To be announced" },
+                { label: "Workshop day", date: "September 27, 2026" },
               ].map((item, i) => (
                 <motion.div 
                   key={i}
@@ -466,7 +494,7 @@ export default function App() {
         <section id="speakers">
           <SectionTitle icon={Users}>Invited Keynote Speakers</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((_, i) => (
+            {keynoteSpeakers.map((speaker, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -474,12 +502,23 @@ export default function App() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Card className="h-full flex flex-col items-center text-center py-12 border-dashed border-2 border-slate-200 bg-slate-50/50">
-                  <div className="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center mb-6 text-slate-300">
-                    <Users className="w-10 h-10" />
+                <Card 
+                  className="h-full flex flex-col items-center text-center p-8 cursor-pointer hover:shadow-xl transition-all hover:-translate-y-1 group bg-white border border-slate-100"
+                  onClick={() => setSelectedMember(speaker)}
+                >
+                  <div className="w-[130px] h-[130px] rounded-full overflow-hidden mb-6 border-4 border-slate-50 shadow-sm group-hover:border-blue-100 transition-colors">
+                    <img 
+                      src={speaker.img} 
+                      alt={speaker.name} 
+                      className={`w-full h-full object-cover ${speaker.imgPos === 'top' ? 'object-top' : 'object-center'}`}
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-400 mb-1">To be announced</h3>
-                  <p className="text-slate-400 text-sm italic">Coming soon</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-1">{speaker.name}</h3>
+                  <p className="text-blue-600 font-semibold text-sm mt-2">{speaker.org}</p>
+                  <div className="mt-6 text-blue-600 text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                    Read Bio <ArrowRight className="w-3 h-3" />
+                  </div>
                 </Card>
               </motion.div>
             ))}
@@ -613,21 +652,23 @@ export default function App() {
               <div className="md:w-3/4 p-8 md:p-10">
                 <div className="flex items-center gap-2 text-slate-400 text-sm mb-4">
                   <Users className="w-4 h-4" />
-                  <span className="uppercase tracking-widest font-bold">Organizers</span>
+                  <span className="uppercase tracking-widest font-bold">{selectedMember.type || "Organizer"}</span>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Biography</h3>
                 <p className="text-slate-600 text-sm leading-relaxed italic">
                   "{selectedMember.bio}"
                 </p>
-                <div className="mt-10 pt-8 border-t border-slate-100 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-blue-600" />
+                {selectedMember.email && (
+                  <div className="mt-10 pt-8 border-t border-slate-100 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Contact</p>
+                      <p className="text-slate-900 font-medium">{selectedMember.email}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Contact</p>
-                    <p className="text-slate-900 font-medium">{selectedMember.email}</p>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </motion.div>
