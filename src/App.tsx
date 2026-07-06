@@ -458,7 +458,7 @@ export default function App() {
               <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-blue-100" />
               
               {[
-                { label: "Workshop paper submission deadline", date: "July 1, 2026" },
+                { label: "Workshop paper submission deadline", oldDate: "July 1, 2026", date: "July 20, 2026" },
                 { label: "Notification of acceptance", date: "July 31, 2026" },
                 { label: "Camera-ready submission", date: "September 3, 2026" },
                 { label: "Workshop day", date: "September 27, 2026" },
@@ -478,7 +478,12 @@ export default function App() {
                   
                   <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <p className="text-slate-500 text-sm font-medium sm:whitespace-nowrap">{item.label}</p>
-                    <p className="text-xl font-bold text-slate-900 sm:whitespace-nowrap">{item.date}</p>
+                    <p className="text-xl font-bold sm:whitespace-nowrap">
+                      {item.oldDate && (
+                        <span className="line-through text-slate-400 mr-3 text-lg font-medium">{item.oldDate}</span>
+                      )}
+                      <span className={item.oldDate ? "text-red-600" : "text-slate-900"}>{item.date}</span>
+                    </p>
                   </div>
                 </motion.div>
               ))}
