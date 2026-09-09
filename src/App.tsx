@@ -24,7 +24,8 @@ import {
   ShieldCheck,
   BookOpen,
   Trophy,
-  ArrowRight
+  ArrowRight,
+  Coffee
 } from 'lucide-react';
 
 const RHEUM_AI_BLUE = "#0056b3";
@@ -171,10 +172,10 @@ export default function App() {
       type: "Keynote Speaker"
     },
     {
-      name: "Prof. Emilio Filippucci",
-      org: "Polytechnic University of Marche, Italy",
-      bio: "Professor Filippucci is an Associate Professor of Rheumatology at the Polytechnic University of Marche (Ancona, Italy) and Head of the Rheumatology Department at the \"Carlo Urbani\" Hospital (Jesi, Italy). He has authored over 300 peer-reviewed publications, with an h-index of 63. He is a faculty member and active contributor to educational initiatives of the European Alliance of Associations for Rheumatology (EULAR), especially in ultrasound training courses, and many ultrasound-focused special interest groups within the Outcome Measures in Rheumatology (OMERACT). His research focuses on the application of ultrasound in rheumatic and musculoskeletal diseases, including rheumatoid arthritis and spondyloarthritis, contributing to standardised imaging definitions and scoring systems used worldwide. Beyond his publication record, Professor Filippucci is widely recognised and regularly invited to national and international congresses and training programs, where he contributes to the dissemination and standardisation of musculoskeletal ultrasound in rheumatology.",
-      img: "team/emilio-filippucci.jpg",
+      name: "Dr. Asier García Alija",
+      org: "Hospital de la Santa Creu i Sant Pau / Hospital Universitari Dexeus, Spain",
+      bio: "Asier García Alija is a rheumatologist working at both the Hospital de la Santa Creu i Sant Pau and the Hospital Universitari Dexeus in Barcelona, and at the same time is pursuing his PhD at the Universitat Autònoma de Barcelona. His area of research is artificial intelligence and digital health within the field of rheumatology, which includes computer vision, natural language processing and process mining. He has a special interest in linking clinical requirements with technological development in order to improve patient monitoring, assist with clinical decision-making and optimise care pathways.",
+      img: "team/asier-garcia.jpg",
       imgPos: "top",
       type: "Keynote Speaker"
     }
@@ -532,25 +533,46 @@ export default function App() {
 
         {/* Program Schedule */}
         <section id="program">
-          <SectionTitle icon={Clock}>Tentative Schedule</SectionTitle>
+          <SectionTitle icon={Clock}>Tentative Schedule - September 27, 2026</SectionTitle>
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
               {[
-                { time: "13:30", event: "Welcome and opening remarks" },
-                { time: "13:45", event: "Keynote Talk #1" },
-                { time: "14:15", event: "Keynote Talk #2" },
-                { time: "14:45", event: "Coffee break" },
-                { time: "15:00", event: "Keynote Talk #3" },
-                { time: "15:30", event: "Poster session and Networking" },
-                { time: "16:30", event: "Panel discussion: clinicians and AI experts roundtable" },
-                { time: "17:30", event: "Closing remarks" },
-                { time: "17:45", event: "End of workshop" },
+                { time: "08:00 – 08:15", event: "Welcome and opening remarks" },
+                { section: "IMAGING ANALYSIS FOR RHEUMATIC DISEASE ASSESSMENT" },
+                { time: "08:15 – 08:45", event: "Keynote #1 — Dr. Asier García Alija", description: "What does rheumatology really need from AI?", isKeynote: true },
+                { time: "08:45 – 09:00", event: "Why Isolated Joint Views Limit Bone-Erosion Segmentation on Hand Radiographs" },
+                { time: "09:00 – 09:15", event: "Advantages and Limitations of Applying ML Techniques in Medical Data Analysis, Illustrated with X-ray Imaging" },
+                { time: "09:15 – 09:30", event: "Interpretable Counterfactual Simulation of Knee Osteoarthritis Progression from qMRI Biomarkers" },
+                { section: "ORDINAL GRADING OF RHEUMATIC DISEASE SEVERITY" },
+                { time: "09:30 – 10:00", event: "Keynote #2 — Prof. Jaime Cardoso", description: "Ordinal grading", isKeynote: true },
+                { time: "10:00 – 10:30", event: "Coffee break", isBreak: true },
+                { time: "10:30 – 10:45", event: "Prototypical Severity Representation Learning for Automated Calcium Pyrophosphate Deposition Disease Assessment" },
+                { time: "10:45 – 11:00", event: "Ordinal DINOv2 Transfer for Joint-Level SvdH Scoring: What Helps and What Does Not" },
+                { time: "11:00 – 11:15", event: "Towards Multi-Task Ordinal Grading of Knee Osteoarthritis and Calcium Pyrophosphate Deposition Using Vision Foundation Models" },
+                { section: "DATA SYNTHESIS FOR RHEUMATOLOGIC IMAGING" },
+                { time: "11:15 – 11:45", event: "Keynote #3 — Prof. Costantino Grana", description: "Synthetic datasets & challenges", isKeynote: true },
+                { time: "11:45 – 12:00", event: "RASH: Rheumatoid Arthritis Synthetic Hand Dataset for Joint-Level Inflammation Estimation" },
+                { time: "12:00 – 12:15", event: "Augmenting the Grey Zone: Generative Models for Ambiguous Kellgren–Lawrence Grade Boundaries in Knee Osteoarthritis" },
+                { time: "12:15 – 12:30", event: "Closing remarks" },
               ].map((item, i) => (
-                <div key={i} className="flex gap-6 items-center p-4 rounded-xl hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-100 transition-all">
-                  <span className="font-mono text-blue-600 font-bold w-16">{item.time}</span>
-                  <div className="w-px h-8 bg-slate-200" />
-                  <span className="text-slate-700 font-medium">{item.event}</span>
-                </div>
+                item.section ? (
+                  <div key={i} className="bg-slate-900 text-white font-bold text-sm uppercase tracking-wider p-3 rounded-lg mt-8 mb-4 text-center shadow-sm">
+                    {item.section}
+                  </div>
+                ) : (
+                  <div key={i} className={`flex flex-col sm:flex-row gap-2 sm:gap-6 items-start sm:items-center p-4 rounded-xl transition-all border ${item.isKeynote ? 'bg-blue-50/50 border-blue-100 hover:shadow-md' : item.isBreak ? 'bg-slate-50 border-slate-200' : 'hover:bg-white hover:shadow-sm border-transparent hover:border-slate-100'}`}>
+                    <span className="font-mono text-blue-600 font-bold sm:w-32 shrink-0">{item.time}</span>
+                    <div className="hidden sm:block w-px h-10 bg-slate-200" />
+                    <div className="flex-1">
+                      <span className={`font-medium ${item.isBreak ? 'text-slate-500' : 'text-slate-800'}`}>
+                        {item.isBreak ? <span className="flex items-center gap-2"><Coffee className="w-4 h-4" /> {item.event}</span> : item.event}
+                      </span>
+                      {item.description && (
+                        <p className="text-slate-500 text-sm mt-1 leading-snug">{item.description}</p>
+                      )}
+                    </div>
+                  </div>
+                )
               ))}
             </div>
           </div>
