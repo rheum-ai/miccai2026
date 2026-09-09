@@ -23,7 +23,6 @@ import {
   Sparkles,
   ShieldCheck,
   BookOpen,
-  Trophy,
   ArrowRight,
   Coffee
 } from 'lucide-react';
@@ -382,7 +381,7 @@ export default function App() {
         </section>
 
         {/* Additional Info Sections */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 pt-16 border-t border-slate-100">
+        <section className="flex flex-col gap-y-12 pt-16 border-t border-slate-100">
           {/* Review Process */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
@@ -425,21 +424,6 @@ export default function App() {
               Accepted papers will be included in the <strong>MICCAI Satellite Events LNCS proceedings</strong>, 
               published by <strong>Springer Nature</strong>. This ensures archival publication standards and 
               broad visibility within the scientific community.
-            </p>
-          </div>
-
-          {/* Best Paper Award */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
-              <div className="p-2 bg-amber-50 rounded-lg">
-                <Trophy className="w-6 h-6 text-amber-600" />
-              </div>
-              Best Paper Award
-            </h3>
-            <p className="text-slate-600 leading-relaxed">
-              To recognize exceptional contributions to the field of rheumatologic imaging, 
-              a <strong>Best Paper Award</strong> will be presented during the workshop. 
-              The award aims to stimulate high-quality research and innovative methodological approaches.
             </p>
           </div>
         </section>
